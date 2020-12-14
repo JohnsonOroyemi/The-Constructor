@@ -47,7 +47,10 @@ $name = "The Constructor";
       <div class="col-lg-8 col-md-10 mx-auto">
       <?php while($row=$result->fetch_array()) 
           {?>
-          <?php if($row["PostedBy"] === $_SESSION["user_id"]){?>
+          <?php 
+          if(isset($_SESSION["user_id"])) 
+          { 
+          if($row["PostedBy"] === $_SESSION["user_id"]){?>
         <div class="post-preview">
         <a href="post.php?id=<?php echo $row['ID']; ?>">
             <h2 class="post-title">
@@ -78,7 +81,10 @@ $name = "The Constructor";
             
         </div>
         <hr>
-        <?php } 
+        <?php }
+        }else{
+          header("location:signin.php");
+      }
         ?>
         <?php
           }
