@@ -1,7 +1,7 @@
 <?php
 session_start();
 include("connection.php");
-$name = "The Constructor";
+$name = "ConsT Herit";
 
   $sql="select * from newpost order by id desc limit 2";
   $result=$con->query($sql);
@@ -45,6 +45,7 @@ include("header.php");
   <div class="container">
     <div class="row">
       <div class="col-lg-8 col-md-10 mx-auto">
+      
       <?php while($row=$result->fetch_array()) 
           {?>
         <div class="post-preview">
@@ -76,6 +77,8 @@ include("header.php");
           }
           ?>
         
+        <br>
+        
         <!-- Pager -->
         <div class="clearfix">
           <a class="btn btn-primary float-right" href="all_post.php">Older Posts &rarr;</a>
@@ -84,11 +87,83 @@ include("header.php");
     </div>
   </div>
 
+  <br>
   <hr>
 
+<script src="asset/lib/jquery/jquery.min.js"></script>
+<script src="asset/lib/bootstrap/js/bootstrap.min.js"></script>
+<script class="include" type="text/javascript" src="asset/lib/jquery.dcjqaccordion.2.7.js"></script>
+<script src="asset/lib/jquery.scrollTo.min.js"></script>
+<script src="asset/lib/jquery.nicescroll.js" type="text/javascript"></script>
+<script src="asset/lib/jquery.sparkline.js"></script>
+<!--common script for all pages-->
+<script src="asset/lib/common-scripts.js"></script>
+<script type="text/javascript" src="asset/lib/gritter/js/jquery.gritter.js"></script>
+<script type="text/javascript" src="asset/lib/gritter-conf.js"></script>
 
+<script type="text/javascript">
+  $(document).ready(function() {
+    var unique_id = $.gritter.add({
+      // (string | mandatory) the heading of the notification
+      title: 'Welcome to Const Herit!',
+      // (string | mandatory) the text inside the notification
+      text: 'A Platform developed for Knowledge Management in Construction Industry',
+      // (string | optional) the image to display on the left
+      image: 'asset/images/IMG-20200121-WA0030.jpg',
+      // (bool | optional) if you want it to fade out on its own or just sit there
+      sticky: false,
+      // (int | optional) the time you want it to be alive for before fading out
+      time: 3000,
+      // (string | optional) the class name you want to apply to that specific message
+      class_name: 'my-sticky-class'
+    });
+
+    return false;
+  });
+</script>
+<script type="application/javascript">
+  $(document).ready(function() {
+    $("#date-popover").popover({
+      html: true,
+      trigger: "manual"
+    });
+    $("#date-popover").hide();
+    $("#date-popover").click(function(e) {
+      $(this).hide();
+    });
+
+    $("#my-calendar").zabuto_calendar({
+      action: function() {
+        return myDateFunction(this.id, false);
+      },
+      action_nav: function() {
+        return myNavFunction(this.id);
+      },
+      ajax: {
+        url: "show_data.php?action=1",
+        modal: true
+      },
+      legend: [{
+          type: "text",
+          label: "Special event",
+          badge: "00"
+        },
+        {
+          type: "block",
+          label: "Regular event",
+        }
+      ]
+    });
+  });
+
+  function myNavFunction(id) {
+    $("#date-popover").hide();
+    var nav = $("#" + id).data("navigation");
+    var to = $("#" + id).data("to");
+    console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
+  }
+</script>
   <!-- Footer -->
-  
 <?php
 //inserting footer file
   include("footer.php");

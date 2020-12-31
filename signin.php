@@ -1,34 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+<?php
+session_start();
+include("connection.php");
+$name = "ConsT Herit";
 
-<head>
+ $sql="select * from newpost order by id desc";
+ $result=$con->query($sql);
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+?>
 
-  <title>The Constructor</title>
-
-   <!-- CSS -->
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
-
-  <!-- Custom fonts for this template -->
-  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" rel="stylesheet" type="text/css">
-  <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
-
-  <!-- Custom styles for this template -->
-  <link href="asset/css/clean-blog.min.css" rel="stylesheet">
-  <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
-</head>
-
-<body>
+<?php
+  include("header.php");
+?>
 
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand" href="index.php">The Constructor</a>
+      <a class="navbar-brand" href="index.php"><?php echo $name;  ?></a>
       <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         Menu
         <i class="fas fa-bars"></i>
@@ -38,110 +25,482 @@
         ?>
     </div>
   </nav>
-     
-    <!-- The form -->
-  <form action="process.php" method="post" class="login-box"> 
-    <h2>Login</h2>
-    <div class="textbox"> <i class="fa fa-fw fa-user"></i> <input type="email" placeholder="Email Address" name="username" required></div>
-    <div class="textbox"> <i class="fa fa-fw fa-lock"></i> <input type="password" placeholder="Password" name="password" required></div>
-    <div> <a href="ResetPassword2.html" class="forgotpassword" >Forgot Passsword?</a> </div> 
-    <input  class="btn" type="submit" name="login" value="Login"> <br> <br>
-    <div class="newuser">New User? <a href="signup.php" class="newuser" >Sign up</a> </div> 
-  </form>
 
+    <!-- Page Header -->
+    <div class="background-wrap">
+  <div class="background"></div>
+</div>
 
+<form action="process.php" method="post" id="accesspanel"> 
+  <h1 id="litheader"><?php echo $name;  ?></h1>
+  <div class="inset">
+    <p>
+      <input type="text" name="username" id="email" placeholder="Email address">
+    </p>
+    <p>
+      <input type="password" name="password" id="password" placeholder="Password">
+    </p> 
+    <label for="remember">Forgot Password?</label><br><br>
+    <input  class="btn" type="submit" name="login" value="Login"> <br><br><br>
+<div>
+  <a href="signup.php" class="newuser">Not registered? Create an account</a>
+</form>
 
-  <style>
-   
-body{
-margin: 0;
-padding: 0;
-font-family: sans-serif;
-background:url('asset/images/large-home-389271_1280.jpg') no-repeat;
-background-size: cover;
+<style>
+    @import url(https://fonts.googleapis.com/css?family=Audiowide);
+
+::-moz-selection {
+    background: #cc0000;
+    text-shadow: none;
 }
 
-.login-box {
-width: 280px;
-position: absolute;
-top: 50%;
-left: 50%;
-transform: translate(-50%, -50%);
-color: white;
-border-radius: 10px;
-background-color: #58595b;
-padding: 25px;
+::selection {
+    background: #cc0000;
+    text-shadow: none;
 }
 
-.login-box h2{
-float: left;
-font-size: 15px;
-border-bottom: 6px solid #3989C9;
-margin-bottom: 50px;
-padding: 13px 0;
+html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video {
+  border: 0;
+  font: inherit;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  text-rendering: optimizeLegibility;
 }
 
-.textbox {
-width: 100%;
-overflow: hidden;
-font-size: 15px;
-padding: 8px 0;
-margin: 8px 0;
-border-bottom: 1px solid #3989c9;
-margin-bottom: 15px;
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section {
+  display: block;
 }
 
-.textbox i{
-width: 26px;
-float: left;
-text-align: center;
-color: white;
+html,body {
+  height: 100%;
+ 
+  margin: 0;
+  padding: 0;
 }
 
-.textbox input{
-border: none;
-outline: none;
-background: none;
-color: white;
-font-size: 12px;
-width: 80%;
-float: left;
-margin: 0 10px;
-
+body {
+  background: #1b1b1b;
+  background:url('asset/images/large-home-389271_1280.jpg') no-repeat;
+  background-size: cover;
+  color: #FFF;
+  font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+  font-size: 12px;
+  line-height: 1;
+  height: 100%;
+ 
+  margin: 0;
+  padding: 0;
 }
 
-.btn{
-width: 100%;
-background: none;
-border: 2px solid #3989C9;
-color: white;
-font-size: 18px;
-cursor: pointer;
-margin: 12px 0;
+.background-wrap {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.background {
+  background: url('https://myrror.co/etc/419062774_1385132057.jpg');
+  background-position: center;
+  background-size: cover;
+  filter: blur(10px);
+  height: 105%;
+  position: relative;
+  width: 105%;
+  right: -2.5%;
+  left: -2.5%;
+  top: -2.5%;
+  bottom: -2.5%;
+}
+
+* {
+  box-sizing: border-box;
+  cursor: default;
+  outline: none;
 }
 
 .newuser {
-text-align: center;
-text-decoration: none;
-color: white;
-font-size: 15px;
-width: 100%;
+  color: white;
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  text-decoration: none;
+  padding: 0 0 0 40px;
+  text-align: center;
+
 }
 
-.forgotpassword {
-text-align: center;
-text-decoration: none;
-color: white;
-font-size: 18px;
-width: 100%;
-padding-bottom: 25px;
+form {
+  background: #58595b;
+  border: 1px solid #dedede;
+  border-radius: .4em;
+  bottom: 0;
+  box-shadow: 0 5px 10px 5px rgba(0,0,0,0.2);
+  height: 350px;
+  left: 0;
+  margin: auto;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 300px;
 }
 
+form:after {
+  background: linear-gradient(to right, #111111, #444444, #b6b6b8, #444444, #2F2F2F, #272727);
+  content: "";
+  display: block;
+  height: 1px;
+  left: 50px;
+  position: absolute;
+  top: 0;
+  width: 150px;
+}
 
-  </style>
+form:before {
+  border-radius: 50%;
+  box-shadow: 0 0 6px 4px #fff;
+  content: "";
+  display: block;
+  height: 5px;
+  left: 34%;
+  position: absolute;
+  top: -7px;
+  width: 8px;
+}
+
+.inset {
+  border-top: 1px solid #19191a;
+  padding: 20px;
+}
+
+form h1 {
+  font-family: 'Audiowide';
+  border-bottom: 1px solid #000;
+  font-size: 18px;
+  padding: 15px 0;
+  position: relative;
+  text-align: center;
+  text-shadow: 0 1px 0 #000;
+}
+
+form h1 {
+  color: white;
+  font-family: Audiowide;
+  font-weight: normal;
+}
+
+form h1.poweron {
+  color: #ffffff;
+  transition: all 0.5s;
+  animation: flicker 1s ease-in-out 1 alternate, neon 1.5s ease-in-out infinite alternate;
+  animation-delay: 0s, 1s;
+}
+
+form h1:after {
+  position: absolute;
+  width: 250px;
+  height: 180px;
+  content: "";
+  display: block;
+  pointer-events: none;
+  top: 0;
+  margin-left: 138px;
+  transform-style: flat;
+  transform: skew(20deg);
+
+  background: -moz-linear-gradient(top, hsla(0,0%,100%,0.1) 0%, hsla(0,0%,100%,0) 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,hsla(0,0%,100%,0.2)), color-stop(100%,hsla(0,0%,100%,0)));
+  background: -webkit-linear-gradient(top, hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);
+  background: -o-linear-gradient(top, hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);
+  background: -ms-linear-gradient(top, hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#42ffffff', endColorstr='#00ffffff',GradientType=0 );
+  background: linear-gradient(to bottom, hsla(0,0%,100%,0.1) 0%,hsla(0,0%,100%,0) 100%);
+
+}
+
+input[type=text], input[type=password] {
+  background: linear-gradient(#1f2124,#27292c);
+  border: 1px solid #222;
+  border-radius: .3em;
+  box-shadow: 0 1px 0 rgba(255,255,255,0.1);
+  color: #FFF;
+  font-size: 13px;
+  margin-bottom: 20px;
+  padding: 8px 5px;
+  width: 100%;
+}
+
+input[type=text]:disabled, input[type=password]:disabled {
+	color: #999;
+}
+
+label[for=remember] {
+  color: white;
+  display: inline-block;
+  height: 20px;
+  line-height: 20px;
+  vertical-align: top;
+  padding: 0 0 0 5px;
+  text-align: center;
+}
+
+.p-container {
+  padding: 0 20px 20px;
+}
+
+.p-container:after {
+  clear: both;
+  content: "";
+  display: table;
+}
+
+.p-container span {
+  color: #0d93ff;
+  display: block;
+  float: left;
+  padding-top: 8px;
+}
+
+input[type=submit] {
+  background: rgb(181, 184, 206);
+  border: 1px solid rgba(0,0,0,0.4);
+  border-radius: .3em;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), inset 0 10px 10px rgba(255,255,255,0.1);
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: bold;
+  height: 40px;
+  padding: 5px 20px;
+  width: 100%;
+}
+
+.denied {
+  color: white !important;
+  text-shadow: 0 0 1px black;
+  background: #EE0000 !important;
+}
+
+input[type=submit]:hover, input[type=submit]:focus {
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), inset 0 -10px 10px rgba(255,255,255,0.1);
+}
+
+input[type=text]:hover:not([disabled]), 
+input[type=text]:focus, 
+input[type=password]:hover:not([disabled]), 
+input[type=password]:focus, 
+label:hover ~ input[type=text], 
+label:hover ~ input[type=password] {
+  background: #27292c;
+}
+
+input[type="checkbox"] {
+  opacity: 0;
+  background: red;
+  position: absolute;
+  cursor: pointer;
+  z-index: 1;
+  height: 100%;
+  width: 100%;
+  left: 0;
+  top: 0;
+}
+
+.checkboxouter {
+  height: 20px;
+  width: 20px;
+  border-radius: 3px;
+  background-color: #000;
+  position: relative;
+  display: inline-block;
+  border: 2px solid #555;
+}
+
+.checkbox {
+  position: absolute;
+  border-bottom: 2px solid #333;
+  border-right: 2px solid #333;
+  background-color: transparent;
+  height: 10px;
+  width: 5px;
+  margin: auto;
+  left: 50%;
+  transform: rotate(45deg);
+  transform-origin: -35% 30%;
+  transition: all 0.2s;
+}
+
+input[type="checkbox"]:checked ~ .checkbox {
+  transition: all 0.3s;
+  border-bottom: 2px solid #ffcc00;
+  border-right: 2px solid #ffcc00;
+}
+
+@keyframes neon {
+  from {
+    text-shadow: 
+    0 0 2.5px #fff,
+    0 0 5px #fff,
+    0 0 7.5px #fff,
+    0 0 10px #B6FF00,
+    0 0 17.5px #B6FF00,
+    0 0 20px #B6FF00,
+    0 0 25px #B6FF00,
+    0 0 37.5px #B6FF00;
+  }
+
+  to {
+      text-shadow: 
+      0 0 3px #fff,
+      0 0 7px  #fff,
+      0 0 13px  #fff,
+      0 0 17px  #B6FF00,
+      0 0 33px  #B6FF00,
+      0 0 38px  #B6FF00,
+      0 0 48px #B6FF00,
+      0 0 63px #B6FF00;
+    }
+}
+
+@keyframes flicker {
+  0% {
+    text-shadow: 
+    0 0 2.5px #fff,
+    0 0 5px #fff,
+    0 0 7.5px #fff,
+    0 0 10px #B6FF00,
+    0 0 17.5px #B6FF00,
+    0 0 20px #B6FF00,
+    0 0 25px #B6FF00,
+    0 0 37.5px #B6FF00;
+  }
+
+  2% {
+    text-shadow: none;
+  }
+
+  8% {
+    text-shadow: 
+    0 0 2.5px #fff,
+    0 0 5px #fff,
+    0 0 7.5px #fff,
+    0 0 10px #B6FF00,
+    0 0 17.5px #B6FF00,
+    0 0 20px #B6FF00,
+    0 0 25px #B6FF00,
+    0 0 37.5px #B6FF00;
+  }
+
+  10% {
+    text-shadow: none;
+  }
+
+  20% {
+    text-shadow: 
+    0 0 2.5px #fff,
+    0 0 5px #fff,
+    0 0 7.5px #fff,
+    0 0 10px #B6FF00,
+    0 0 17.5px #B6FF00,
+    0 0 20px #B6FF00,
+    0 0 25px #B6FF00,
+    0 0 37.5px #B6FF00;
+  }
+
+  22% {
+    text-shadow: none;
+  }
+
+  24% {
+    text-shadow: 
+    0 0 2.5px #fff,
+    0 0 5px #fff,
+    0 0 7.5px #fff,
+    0 0 10px #B6FF00,
+    0 0 17.5px #B6FF00,
+    0 0 20px #B6FF00,
+    0 0 25px #B6FF00,
+    0 0 37.5px #B6FF00;
+  }
+
+  28% {
+    text-shadow: none;
+  }
+
+  32% {
+    text-shadow: 
+    0 0 2.5px #fff,
+    0 0 5px #fff,
+    0 0 7.5px #fff,
+    0 0 10px #B6FF00,
+    0 0 17.5px #B6FF00,
+    0 0 20px #B6FF00,
+    0 0 25px #B6FF00,
+    0 0 37.5px #B6FF00;
+  }
+
+  34% {
+    text-shadow: none;
+  }
+
+  36% {
+    text-shadow: none;
+  }
+
+  42% {
+    text-shadow: none;
+  }
+
+  100% {
+    text-shadow: 
+    0 0 2.5px #fff,
+    0 0 5px #fff,
+    0 0 7.5px #fff,
+    0 0 10px #B6FF00,
+    0 0 17.5px #B6FF00,
+    0 0 20px #B6FF00,
+    0 0 25px #B6FF00,
+    0 0 37.5px #B6FF00;
+  }
+}
+</style>
+
+<script>
+    $(document).ready(function() {
+
+var state = false;
+
+//$("input:text:visible:first").focus();
+
+$('#accesspanel').on('submit', function(e) {
+
+    e.preventDefault();
+
+    state = !state;
+
+    if (state) {
+        document.getElementById("litheader").className = "poweron";
+        document.getElementById("go").className = "";
+        document.getElementById("go").value = "Initializing...";
+    }else{
+        document.getElementById("litheader").className = "";
+        document.getElementById("go").className = "denied";
+        document.getElementById("go").value = "Access Denied";
+    }
+
+});
+
+});
+</script>
 
 
-  <!-- Bootstrap core JavaScript -->
+ <!-- Bootstrap core JavaScript -->
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
@@ -151,14 +510,7 @@ padding-bottom: 25px;
 
   <!-- Custom scripts for this template -->
   <script src="js/clean-blog.min.js"></script>
-</body>
 
-</html>
-
-
-
-
+<body>
   
-
-
-
+ </html>

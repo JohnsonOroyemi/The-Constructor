@@ -12,6 +12,7 @@
 
   <!-- Bootstrap core CSS -->
   <!-- CSS -->
+<link href="asset/images/favicon-03.png" rel="icon">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
 
   <!-- Custom fonts for this template -->
@@ -21,7 +22,10 @@
 
   <!-- Custom styles for this template -->
   <link href="asset/css/clean-blog.min.css" rel="stylesheet">
-
+  <script src="//cdn.ckeditor.com/4.14.1/standard/ckeditor.js"></script>
+  <link rel="stylesheet" type="text/css" href="asset/lib/gritter/css/jquery.gritter.css" />
+  
+ 
 </head>
 
 <body>

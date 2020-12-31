@@ -32,16 +32,14 @@ $name = "ConsT Herit";
 </div>
 
 <form action="process.php" method="post" id="accesspanel"> 
-  <h1 id="litheader"><?php echo $name;  ?></h1>
+  <h1 id="litheader">MAKE PAYMENT</h1>
   <div class="inset">
-    <p><input type="text" placeholder="First Name" name="firstname" required></p>
-      <p><input type="text" placeholder="Last Name" name="lastname" required></p>
-      <p><input type="text" placeholder="Email" name="email" required></p>
-      <p><input type="text" placeholder="Password" name="password" required></p>
-     <br><br>
-    <input  class="btn" type="submit" name="create_user" value="Sign Up"> <br><br><br>
+    <p>
+      <input type="text" name="email" id="email" placeholder="Email address">
+    </p>
+    <br>
+    <input  class="btn" type="submit" name="pay" value="Pay" onclick="payWithPaystack()"><br><br><br>
 <div>
-  <a href="signin.php" class="newuser">Already registered? Sign In</a>
 </form>
 
 <style>
@@ -130,6 +128,7 @@ body {
   text-decoration: none;
   padding: 0 0 0 40px;
   text-align: center;
+
 }
 
 form {
@@ -138,7 +137,7 @@ form {
   border-radius: .4em;
   bottom: 0;
   box-shadow: 0 5px 10px 5px rgba(0,0,0,0.2);
-  height: 450px;
+  height: 225px;
   left: 0;
   margin: auto;
   overflow: hidden;
@@ -496,18 +495,7 @@ $('#accesspanel').on('submit', function(e) {
 });
 </script>
 
-
- <!-- Bootstrap core JavaScript -->
-  <script src="vendor/jquery/jquery.min.js"></script>
-  <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-
-  <!-- Contact Form JavaScript -->
-  <script src="js/jqBootstrapValidation.js"></script>
-  <script src="js/contact_me.js"></script>
-
-  <!-- Custom scripts for this template -->
-  <script src="js/clean-blog.min.js"></script>
-
 <body>
   
  </html>
+

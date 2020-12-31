@@ -33,10 +33,25 @@ $sql = "CREATE TABLE newpost (
     echo "newpost Table created successfully<br>";
 }
  else {
-    echo "Error creating User table: " . mysqli_error($con)."<br>";
+    echo "Error creating newpost table: " . mysqli_error($con)."<br>";
 }
 
-  
 
+$sql = "CREATE TABLE contact_form_info (
+    id int(11) AUTO_INCREMENT PRIMARY KEY,
+    firstName varchar(200) DEFAULT NULL,
+    email varchar(200) NOT NULL,
+    phone varchar(50) NOT NULL,
+    comments varchar(32000) DEFAULT NULL,
+    contactmailBy int(11),
+    FOREIGN KEY(contactmailBy)
+        REFERENCES user(userId)
+  )";
+  if (mysqli_query($con, $sql)) {
+    echo "contact_form_info Table created successfully<br>";
+}
+ else {
+    echo "Error creating contact_form_info table: " . mysqli_error($con)."<br>";
+}
 
 ?>

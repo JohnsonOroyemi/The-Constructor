@@ -6,7 +6,6 @@ $name = "ConsT Herit";
   include("header.php");
 ?>
 
-
   <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
     <div class="container">
@@ -21,30 +20,46 @@ $name = "ConsT Herit";
     </div>
   </nav>
 
-    <!-- Page Header -->
-    <header class="masthead" style="background-image: url('asset/images/skyline-3581739_1920.jpg')">
+  <section id="container">
+ <!-- Page Header -->
+ <header class="masthead" style="background-image: url('')">
     <div class="overlay"></div>
     <div class="container">
       <div class="row">
         <div class="col-lg-8 col-md-10 mx-auto">
           <div class="page-heading">
-            <h1><?php echo $name;  ?></h1>
-            <h4 class="subheading">Borne out of passion to protect the integrity of Construction Industry by educating both the professionals as well as the populace. The constructor set out to bring an end to misinformation by providing proven and evidence based information as far as construction is concerned.</h4>
+            <h1></h1>
+            <h4 class="subheading"></h4>
           </div>
         </div>
       </div>
     </div>
   </header>
+<aside>
+  <div id="sidebar" class="nav-collapse ">
+  <ul class="sidebar-menu" id="nav-accordion">
+              <li><a href="general.html">General</a></li>
+              <li><a href="buttons.html">Buttons</a></li>
+              <li><a href="panels.html">Panels</a></li>
+              <li><a href="font_awesome.html">Font Awesome</a></li>
+            </ul>
+</div>
+  </aside>
+
+  <section id="main-content">
+      <section class="wrapper site-min-height">
+
+    </section>
+</section>
+  </section>
+   
+
+  
 
   <hr>
 
-    <!-- Footer -->
-  <?php
-//inserting footer file
-  include("footer.php");
-?>
-
-
-
-
-  
+<!-- Footer -->
+          <?php
+        //inserting footer file
+          include("footer.php");
+        ?>

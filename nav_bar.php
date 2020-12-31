@@ -33,5 +33,8 @@
             ?>
 
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fa fa-fw fa-search"></i></a>
+        </li>
     </ul>
 </div>
